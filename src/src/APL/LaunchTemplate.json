@@ -1,0 +1,95 @@
+{
+    "type": "APL",
+    "version": "1.1",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.0.0"
+        }
+    ],
+    "layouts": {
+        "Spot": {
+            "item": [
+                {
+                    "type": "Container",
+                    "width": "100vw",
+                    "height": "80vh",
+                    "items": [
+                        {
+                            "type": "Frame",
+                            "width": "100vw",
+                            "height": "80vh",
+                            "items": [
+                                {
+                                    "type": "Container",
+                                    "width": "100vw",
+                                    "height": "80vh",
+                                    "alignItems": "center",
+                                    "justifyContent": "center",
+                                    "items": [
+                                        {
+                                            "type": "Container",
+                                            "width": "75vw",
+                                            "height": "25vh",
+                                            "item": {
+                                                "type": "Text",
+                                                "textAlign": "center",
+                                                "textAlignVertical": "center",
+                                                "color": "#000000",
+                                                "fontSize": "8vh",
+                                                "text": "${payload.bodyTemplateMetadata.startText}"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "backgroundColor": "#cccccc"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Show5": {
+            "item": [
+                {
+                    "type": "Container",
+                    "width": "100vw",
+                    "height": "80vh",
+                    "direction": "column",
+                    "items": [
+                        {
+                            "type": "Frame",
+                            "width": "100vw",
+                            "height": "80vh",
+                            "items": [
+                                {
+                                    "type": "Container",
+                                    "width": "100vw",
+                                    "height": "80vh",
+                                    "alignItems": "center",
+                                    "justifyContent": "center",
+                                    "item": [
+                                        {
+                                            "type": "Container",
+                                            "width": "75vw",
+                                            "height": "25vh",
+                                            "item": {
+                                                "type": "Text",
+                                                "textAlign": "center",
+                                                "textAlignVertical": "center",
+                                                "color": "#000000",
+                                                "fontSize": "8vh",
+                                                "text": "${payload.bodyTemplateMetadata.startText}"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "backgroundColor": "#cccccc"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -10,9 +10,9 @@ class APLConstants {
     static getConstants() {
         return {
 
-            S3ServerDEV: 'https://video-goles-dev.s3-eu-west-1.amazonaws.com',
-            S3ServerPRE: 'https://video-goles-pre.s3-eu-west-1.amazonaws.com',
-            S3ServerPRO: 'https://video-goles-pro.s3-eu-west-1.amazonaws.com',
+            S3ServerDEV: 'video-goles-dev.s3-eu-west-1.amazonaws.com',
+            S3ServerPRE: 'video-goles-pre.s3-eu-west-1.amazonaws.com',
+            S3ServerPRO: 'video-goles-pro.s3-eu-west-1.amazonaws.com',
            
         }
     }

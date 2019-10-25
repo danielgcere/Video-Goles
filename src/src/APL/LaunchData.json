@@ -1,5 +1,7 @@
 {
-    "BackbroundMetadata": {
-        "backgroundURL" : "https://[APL_SERVER]/[APL_VERSION]/images/VIP.png"
+    "bodyTemplateMetadata": {
+        "backgroundURL" : "https://[APL_SERVER]/[APL_VERSION]/images/VIP.png",
+        "startText" : "Bienvenido a <br><b>Video Goles</b>",
+        "title" : "<b>Video Goles</b>"
     }
 }

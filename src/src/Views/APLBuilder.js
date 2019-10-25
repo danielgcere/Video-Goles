@@ -17,6 +17,7 @@ async function getAPL(attributes = new Attributes().init(attributes), apl = new 
         console.VIPLog('APL Case: ' + apl.aplIntentView);
         switch (apl.aplIntentView) {
             case 'LaunchRequest':
+            case 'RandomVideoIntent':
                 await getLaunchView(attributes, apl);
                 break;
             case 'SessionEndedRequest':
@@ -38,9 +39,9 @@ async function getAPL(attributes = new Attributes().init(attributes), apl = new 
                 break;
         }
 
-        apl.datasource = await Libraries.UtilsVIP.getAPLServerVersionName(apl.datasource, attr);
+        apl.datasource = await Libraries.UtilsVIP.getAPLServerVersionName(apl.datasource, apl.name);
         apl.template = require('../APL/APLInflate.json');
-        apl.template = await Libraries.UtilsVIP.getAPLServerVersionName(apl.template, attr);
+        apl.template = await Libraries.UtilsVIP.getAPLServerVersionName(apl.template, apl.name);
 
         return Promise.resolve(attributes);
 

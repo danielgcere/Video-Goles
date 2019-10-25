@@ -3,11 +3,94 @@
     "version": "1.1",
     "import": [
         {
+            "name": "alexa-layouts",
+            "version": "1.0.0"
+        },
+        {
             "name": "[APL_NAME]",
             "version": "1.0.0",
             "source": "https://[APL_SERVER]/[APL_VERSION]/templates/[APL_NAME].json"
         }
     ],
+    "layouts": {
+        "Inflate": {
+            "parameters": [
+                "payload"
+            ],
+            "items": [
+                {
+                    "type": "Container",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "item": [
+                        {
+                            "type": "VideoGolesHeader"
+                        },
+                        {
+                            "type": "Frame",
+                            "width": "100vw",
+                            "height": "80vh",
+                            "backgroundColor": "#eeeeee",
+                            "item": [
+                                {
+                                    "type": "Container",
+                                    "when": "${viewport.shape == 'round'}",
+                                    "width": "100vw",
+                                    "height": "80vh",
+                                    "items": [
+                                        {
+                                            "type": "Spot",
+                                            "payload": "${payload}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Container",
+                                    "width": "100vw",
+                                    "height": "80vh",
+                                    "items": [
+                                        {
+                                            "type": "Show5",
+                                            "payload": "${payload}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "VideoGolesHeader": {
+            "items": [
+                {
+                    "type": "Frame",
+                    "width": "100vw",
+                    "height": "20vh",
+                    "item": [
+                        {
+                            "type": "Container",
+                            "width": "100vw",
+                            "height": "20vh",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "items": [
+                                {
+                                    "type": "Text",
+                                    "textAlign": "center",
+                                    "textAlignVertical": "center",
+                                    "color": "#ffffff",
+                                    "fontSize": "10vh",
+                                    "text": "${payload.bodyTemplateMetadata.title}"
+                                }
+                            ]
+                        }
+                    ],
+                    "backgroundColor": "#0061a9"
+                }
+            ]
+        }
+    },
     "mainTemplate": {
         "parameters": [
             "payload"
