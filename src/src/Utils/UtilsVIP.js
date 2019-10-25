@@ -55,6 +55,31 @@ class UtilsVIP {
 
         return Promise.resolve(attributes);
     }
+
+    /**
+     * Función getErrorText: Retorna el error de la arquitectura VIP.
+     * @param  {Attributes} attributes
+     * @returns {Attributes} attributes
+     */
+
+    static async getAPLServerVersionName(input, name) {
+
+        console.VIPLog('getAPLServerVersionName INIT');
+
+        try {
+
+			let inputString = JSON.stringify(input);
+			let replaceServer = inputString.split("[APL_SERVER]").join((process.env.APL_SERVER === "DEV")?Libraries.APLConstants.S3ServerDEV:(process.env.APL_SERVER === "PRE")?Libraries.APLConstants.S3ServerPRE:Libraries.APLConstants.S3ServerPRO);
+			let replaceVersion = replaceServer.split("[APL_VERSION]").join(process.env.APL_VERSION);
+			let replaceName = replaceVersion.split("[APL_NAME]").join(name);
+			
+            return JSON.parse(replaceName);
+
+        } catch (error) {
+            console.VIPError('getAPLServerVersionName try error')
+            throw new Error(error);
+        }
+    }
 }
 
 module.exports = UtilsVIP;

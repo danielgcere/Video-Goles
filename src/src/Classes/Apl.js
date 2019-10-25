@@ -5,6 +5,7 @@ module.exports = class Apl {
     constructor() {
         this.aplIntentView = '';
         this.aplIntentTouchToken = '';
+        this.name = '';
         this.template = '';
         this.datasource = '';
         this.headerBackButton = false;
@@ -13,6 +14,7 @@ module.exports = class Apl {
     clear() {
         this.aplIntentView = '';
         this.aplIntentTouchToken = '';
+        this.name = '';
         this.template = '';
         this.datasource = '';
         this.headerBackButton = false;
@@ -20,7 +22,8 @@ module.exports = class Apl {
     }
     init(values) {
         this.aplIntentView = values.aplIntentView;
-        this.aplIntentTouchToken = values.aplIntentTouchToken;;
+        this.aplIntentTouchToken = values.aplIntentTouchToken;
+        this.name = values.name;
         this.template = values.template;
         this.datasource = values.template;
         this.headerBackButton = values.headerBackButton;

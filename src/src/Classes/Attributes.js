@@ -179,16 +179,19 @@ class ErrorVIP {
  */
 class Apl {
     constructor() {
+        this.name = '';
         this.title = '';
         this.subtitle = '';
         this.bodyText = '';
     }
     clear() {
+        this.name = '';
         this.title = '';
         this.subtitle = '';
         this.bodyText = '';
     }
     init(values) {
+        this.name = values.name;
         this.title = values.title;
         this.subtitle = values.subtitle;
         this.bodyText = values.bodyText;
