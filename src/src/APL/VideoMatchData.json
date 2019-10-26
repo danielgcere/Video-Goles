@@ -1,0 +1,12 @@
+{
+    "bodyTemplateMetadata": {
+        "backgroundURL" : "https://[APL_SERVER]/[APL_VERSION]/images/VIP.png",
+        "title" : "<b>Video Goles</b>",
+        "startText" : "Bienvenido a <br><b>Video Goles</b>",
+        "homeTeam" : "Real Madrid",
+        "homeScore" : "2",
+        "awayTeam" : "Ponferradina",
+        "awayScore" : "0",
+        "videoSource" : "https://[APL_SERVER]/[APL_VERSION]/videos/video-prueba-360p.mp4"
+    }
+}
