@@ -33,17 +33,21 @@ async function getAPL(attributes = new Attributes().init(attributes), apl = new 
             case 'ComingSoon':
             case 'NoFutureFuncionalities':
             case 'Greetings':
-                await getBackGroundView(attributes, apl);
+                await getLaunchView(attributes, apl);
                 break;
             default:
                 console.VIPLog('APL Case: Default');
-                await getBackGroundView(attributes, apl);
+                await getLaunchView(attributes, apl);
                 break;
         }
 
         apl.datasource = await Libraries.UtilsVIP.getAPLServerVersionName(apl.datasource, apl.name);
         apl.template = require('../APL/APLInflate.json');
         apl.template = await Libraries.UtilsVIP.getAPLServerVersionName(apl.template, apl.name);
+
+        console.VIPLog('attributes al salir de getAPL: ' + JSON.stringify(attributes, null, 4));
+        console.VIPLog('apl al salir de getAPL: ' + JSON.stringify(apl, null, 4));
+
 
         return Promise.resolve(attributes);
 

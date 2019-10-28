@@ -6,6 +6,7 @@ module.exports = class Attributes {
         this.alexaInfo = new AlexaInfo();
         this.voiceResponse = new VoiceResponse();
         this.session = new Session();
+        this.videoGoles = new VideoGoles();
         this.errorVIP = new ErrorVIP();
         this.myIntentSlot = new MyIntentSlot(); //Este objeto es sólo un ejemplo, debemos generar un objeto por cada uno de los Slots del Modelo.
         this.apl = new Apl();
@@ -14,6 +15,7 @@ module.exports = class Attributes {
         this.alexaInfo = new AlexaInfo();
         this.voiceResponse = new VoiceResponse();
         this.session = new Session();
+        this.videoGoles = new VideoGoles();
         this.errorVIP = new ErrorVIP();
         this.myIntentSlot = new MyIntentSlot();
         this.apl = new Apl();
@@ -21,6 +23,7 @@ module.exports = class Attributes {
     init(values) {
         this.voiceResponse = new VoiceResponse().init(values.voiceResponse);
         this.session = new Session().init(values.session);
+        this.videoGoles = new VideoGoles().init(values.videoGoles);
         this.errorVIP = new ErrorVIP().init(values.errorVIP);
         this.myIntentSlot = new MyIntentSlot().init(values.myIntentSlot);
         this.apl = new Apl().init(values.apl);
@@ -195,6 +198,40 @@ class Apl {
         this.title = values.title;
         this.subtitle = values.subtitle;
         this.bodyText = values.bodyText;
+        return this;
+    }
+    toJSON() {
+        return Object.getOwnPropertyNames(this).reduce((a, b) => {
+            a[b] = this[b];
+            return a;
+        }, {});
+    }
+}
+
+/**
+ * Clase GetAllBookingByFFData: encargada de manejar los datos proporcionados por la  API GetAllBookingByFF.
+ */
+class VideoGoles {
+
+    constructor() {
+        this.matches = [];
+        this.numMatches = 0;
+        
+    }
+    clear() {
+        this.matches = [];
+        this.numMatches = 0;
+
+    }
+    init(values) {
+        this.matches = values.matches;
+        this.numMatches = values.numMatches;
+        return this;
+    }
+    initAPI(values) {
+        this.matches = values;
+        this.numMatches = values.lenght;
+        
         return this;
     }
     toJSON() {

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Este repositorio contiene todo el código del Skill de Alexa Banca March.",
   "dependencies": {
-    "ask-sdk": "^2.5.1"
+    "ask-sdk": "^2.5.1",
+    "unirest": "^0.6.0",
+    "youtube-dl": "^2.0.2"
   },
   "devDependencies": {},
   "scripts": {

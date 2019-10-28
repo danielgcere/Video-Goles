@@ -80,6 +80,63 @@ class UtilsVIP {
             throw new Error(error);
         }
     }
+
+    /**
+     * Función getDate: Retorna el valor de la fecha.
+     * @param  {Attributes} attributes
+     * @returns {Attributes} attributes
+     */
+
+    static async getDate(input) {
+
+        console.VIPLog('getDate INIT');
+
+        console.VIPLog('Fecha recogida del servicio: ' + input);
+
+        try {
+            let date = {
+                year : '',
+                month : '',
+                day : '',
+                hour : '',
+                minutes : ''
+            };
+
+			
+            let splited = input.split("T");
+            
+            let splitDate = splited[0];
+            let splitTime = splited[1];
+
+            console.VIPLog('getDate - splitDate: ' + splitDate);
+            console.VIPLog('getDate - splitTime: ' + splitTime);
+
+            let splitedDate = splitDate.split("-");
+            let splitedTime = splitTime.split(":");
+
+            date.year = splitedDate[0];
+            date.month = splitedDate[1];
+            date.day = splitedDate[2];
+
+            console.VIPLog('getDate - year: ' + date.year);
+            console.VIPLog('getDate - month: ' + date.month);
+            console.VIPLog('getDate - day: ' + date.day);
+
+            date.hour = splitedTime[0];
+            date.minutes = splitedTime[1];
+
+            console.VIPLog('getDate - hour: ' + date.hour);
+            console.VIPLog('getDate - minutes: ' + date.minutes);
+            
+            console.VIPLog('Fecha formateada por el servicio: ' + JSON.stringify(date));
+			
+            return date;
+
+        } catch (error) {
+            console.VIPError('getDate try error')
+            throw new Error(error);
+        }
+    }
 }
 
 module.exports = UtilsVIP;
