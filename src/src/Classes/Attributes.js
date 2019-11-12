@@ -215,23 +215,24 @@ class VideoGoles {
 
     constructor() {
         this.matches = [];
-        this.numMatches = 0;
+        this.listMatches = [];
+        this.numMatches = [];
+        this.currentMatch = '';
+
         
     }
     clear() {
         this.matches = [];
-        this.numMatches = 0;
+        this.listMatches = [];
+        this.numMatches = [];
+        this.currentMatch = '';
 
     }
     init(values) {
         this.matches = values.matches;
+        this.listMatches = values.listMatches;
         this.numMatches = values.numMatches;
-        return this;
-    }
-    initAPI(values) {
-        this.matches = values;
-        this.numMatches = values.lenght;
-        
+        this.currentMatch = values.currentMatch;
         return this;
     }
     toJSON() {

@@ -3,8 +3,48 @@
 //Constantes de VIP.
 const Attributes = require('../../Classes/Attributes');
 const Match = require('../../Classes/Match');
+const ListMatch = require('../../Classes/ListMatch');
 const Libraries = require('../../Base/Libraries');
 const unirest = require("unirest");
+
+/**
+ * Función getRandomVideoMatch: encargada de devolver las llamadas al servicio, debe ser remplazada y se encuntra a modo de ejemplo.
+ * @param  {Attributes} attributes
+ * @returns {Attributes} attributes
+ */
+async function getRandomVideoMatch(attributes = new Attributes().init(attributes)){
+    console.VIPLog('attributes: ' + JSON.stringify(attributes, null, 4));
+    try {
+        try {
+            console.VIPLog('getRandomVideoMatch INIT');
+
+            let randomPosition = Libraries.Utils.getRandomIndexOfArray(attributes.videoGoles.listMatches);
+
+            await getVideos().then((body) => {
+                
+                body.forEach(function (match) {
+                    if(attributes.videoGoles.listMatches[randomPosition].title == match.title){
+                        attributes.videoGoles.currentMatch = new Match().initAPI(match);
+                    }
+                });
+            
+            }).catch((error) => console.log("error", error));
+
+            attributes.videoGoles.listMatches = [];
+
+            console.VIPLog('attributes al salir de getRandomVideoMatch: ' + JSON.stringify(attributes, null, 4));
+            
+            console.VIPLog('getRandomVideoMatch ENDED');
+            return Promise.resolve(attributes);
+        } catch (error) {
+            console.VIPError('getRandomVideoMatch process try error: ' + error);
+            throw new Error(error);
+        };
+    } catch (error) {
+        console.VIPError('getRandomVideoMatch try error: ' + error);
+        throw new Error(error);
+    }
+}
 
 /**
  * Función getFeedVideoGoles: encargada de devolver las llamadas al servicio, debe ser remplazada y se encuntra a modo de ejemplo.
@@ -20,7 +60,7 @@ async function getFeedVideoGoles(attributes = new Attributes().init(attributes))
             await getVideos().then((body) => {
                 
                 body.forEach(function (match) {
-                    attributes.videoGoles.matches.push(new Match().init(match));
+                    attributes.videoGoles.listMatches.push(new ListMatch().initAPI(match));
                 });
 
                 attributes.videoGoles.numMatches = body.length;
@@ -62,3 +102,4 @@ async function getVideos(){
     }
 
 module.exports.getFeedVideoGoles = getFeedVideoGoles;
+module.exports.getRandomVideoMatch = getRandomVideoMatch;

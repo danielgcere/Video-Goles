@@ -17,7 +17,11 @@ async function getRandomVideoMessage(attributes = new Attributes().init(attribut
         try {
             console.VIPLog('getRandomVideoMessage INIT');
 
-            //await Interactor.VideoAPIInteractor.getFeedVideoGoles(attributes);
+            await Interactor.VideoAPIInteractor.getFeedVideoGoles(attributes);
+
+            await Interactor.VideoAPIInteractor.getRandomVideoMatch(attributes);
+
+            await Interactor.WebInteractor.getWebVideoMatch(attributes);
 
             let randomPosition = Libraries.Utils.getRandomIndexOfArray(Libraries.TextConstants.RandomVideoSpeakText);
             await Libraries.UtilsVIP.getSpeakText(attributes, Libraries.TextConstants.RandomVideoSpeakText[randomPosition], undefined, Libraries.TextConstants.RandomVideoRepromptText[randomPosition], undefined);
